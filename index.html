@@ -4,447 +4,455 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>老外生日企劃｜怕胖團 Birthday Party</title>
-
+<title>老外生日派對｜怕胖團 Birthday Dinner</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;800;900&display=swap');
 
 :root {
-  --red: #ff3b30;
-  --yellow: #ffd447;
-  --dark: #151515;
+  --red:#ef3434;
+  --yellow:#ffd447;
+  --dark:#151515;
+  --panel:#252525;
 }
-
-* { box-sizing: border-box; }
-
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
 body {
-  margin: 0;
-  font-family: 'Noto Sans TC', sans-serif;
-  background: var(--dark);
-  color: white;
+  margin:0;
+  background:var(--dark);
+  color:white;
+  font-family:'Noto Sans TC',sans-serif;
 }
 
-  <!-- 生日邀請主視覺 -->
-<div class="ticket-cover">
-  <img
-    src="DRUMMER.png"
-    alt="老外生日搖滾派對邀請票">
-</div>
-  
+/* 首頁生日邀請圖 */
+.ticket-cover {
+  width:100%;
+  padding:18px 14px 8px;
+  text-align:center;
+  background:linear-gradient(180deg,#090909,#171717);
+}
+.ticket-cover img {
+  display:block;
+  width:100%;
+  max-width:1000px;
+  height:auto;
+  margin:auto;
+  border-radius:12px;
+  box-shadow:0 12px 38px #0009;
+}
+
+/* 主視覺 */
 .hero {
-  min-height: 320px;
-  padding: 55px 20px 45px;
-  text-align: center;
-  background:
-    linear-gradient(135deg, rgba(0,0,0,.9), rgba(50,0,0,.7)),
-    repeating-linear-gradient(45deg,#252525 0,#252525 2px,#191919 2px,#191919 8px);
-  border-bottom: 5px solid var(--red);
+  text-align:center;
+  padding:34px 18px 38px;
+  background:radial-gradient(ellipse at top,#4b1515,#171717 65%);
+  border-bottom:4px solid var(--red);
 }
-
 .tag {
-  display: inline-block;
-  background: var(--red);
-  padding: 7px 17px;
-  border-radius: 30px;
-  font-size: 12px;
-  letter-spacing: 2px;
-  font-weight: 800;
+  display:inline-block;
+  padding:7px 15px;
+  border-radius:30px;
+  background:var(--red);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:2px;
 }
-
 .hero h1 {
-  font-size: clamp(38px, 8vw, 66px);
-  line-height: 1.2;
-  margin: 20px 0 8px;
-  font-weight: 900;
-  letter-spacing: 3px;
+  margin:17px 0 8px;
+  font-size:clamp(32px,7vw,54px);
+  font-weight:900;
 }
-
-.hero h1 span { color: var(--yellow); }
-
-.hero p {
-  color: #ddd;
-  letter-spacing: 2px;
-  font-size: 15px;
-}
-
-.hero .sub {
-  margin-top: 25px;
-  color: var(--yellow);
-  font-weight: 800;
-  font-size: 17px;
+.hero h1 span { color:var(--yellow); }
+.hero p { color:#ddd; }
+.hero .date-line {
+  color:var(--yellow);
+  font-weight:800;
+  margin-top:18px;
 }
 
 .container {
-  max-width: 680px;
-  margin: auto;
-  padding: 25px 18px 60px;
+  max-width:720px;
+  margin:auto;
+  padding:20px 18px 55px;
 }
-
 .intro {
-  text-align: center;
-  padding: 20px 5px 30px;
-  line-height: 1.9;
-  color: #ddd;
+  padding:18px 5px 26px;
+  color:#ddd;
+  text-align:center;
+  line-height:1.9;
 }
+.intro strong { color:var(--yellow); }
 
-.intro strong {
-  color: var(--yellow);
-}
-
-.section {
-  margin: 25px 0;
-}
-
+.section { margin:26px 0; }
 .section-title {
-  font-size: 20px;
-  font-weight: 900;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:14px;
+  font-size:19px;
+  font-weight:900;
 }
-
 .number {
-  background: var(--red);
-  width: 32px;
-  height: 32px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  font-size: 15px;
+  display:inline-flex;
+  width:32px;
+  height:32px;
+  align-items:center;
+  justify-content:center;
+  border-radius:8px;
+  background:var(--red);
 }
-
 .hint {
-  color: #aaa;
-  font-size: 12px;
-  margin: -7px 0 14px 42px;
+  margin:-6px 0 14px 42px;
+  color:#aaa;
+  font-size:12px;
 }
 
+/* 日期 */
 .date-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 9px;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:9px;
 }
-
 .choice {
-  cursor: pointer;
-  position: relative;
+  position:relative;
+  display:block;
+  cursor:pointer;
 }
-
 .choice input {
-  position: absolute;
-  opacity: 0;
+  position:absolute;
+  opacity:0;
+  pointer-events:none;
 }
-
 .choice span {
-  display: block;
-  background: #292929;
-  border: 1px solid #444;
-  border-radius: 12px;
-  padding: 15px 5px;
-  text-align: center;
-  transition: .2s;
+  display:block;
+  padding:14px 5px;
+  text-align:center;
+  border:1px solid #494949;
+  border-radius:11px;
+  background:var(--panel);
 }
-
-.choice span small {
-  display: block;
-  color: #aaa;
-  font-size: 11px;
+.choice small {
+  display:block;
+  margin-top:3px;
+  color:#aaa;
+  font-size:11px;
 }
-
 .choice input:checked + span {
-  background: var(--red);
-  border-color: var(--yellow);
-  color: white;
-  box-shadow: 0 0 12px #ff3b3055;
+  background:#842323;
+  border:2px solid var(--yellow);
+  padding:13px 4px;
 }
+.choice input:checked + span small { color:white; }
 
-.choice input:checked + span small {
-  color: white;
-}
-
+/* 時間 */
 .time-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:9px;
 }
-
 .time-grid .choice span {
-  padding: 13px 5px;
-  font-weight: 800;
+  padding:13px 5px;
+  font-weight:800;
 }
 
+/* 餐廳 */
 .restaurant {
-  display: block;
-  margin-bottom: 13px;
-  cursor: pointer;
-  position: relative;
+  position:relative;
+  display:block;
+  margin-bottom:12px;
+  cursor:pointer;
 }
-
 .restaurant input {
-  position: absolute;
-  opacity: 0;
+  position:absolute;
+  opacity:0;
+  pointer-events:none;
 }
-
 .restaurant-card {
-  background: #292929;
-  border: 1px solid #444;
-  border-radius: 14px;
-  padding: 17px;
-  transition: .2s;
+  padding:16px;
+  border:1px solid #494949;
+  border-radius:13px;
+  background:var(--panel);
+  transition:.18s;
 }
-
 .restaurant input:checked + .restaurant-card {
-  border: 2px solid var(--yellow);
-  background: #392a20;
+  border:2px solid var(--yellow);
+  padding:15px;
+  background:#392626;
 }
-
 .restaurant-card h3 {
-  margin: 0 0 7px;
-  font-size: 17px;
+  margin:0 0 6px;
+  font-size:16px;
 }
-
 .restaurant-card p {
-  color: #aaa;
-  font-size: 12px;
-  margin: 0 0 12px;
+  margin:0 0 11px;
+  color:#aaa;
+  font-size:12px;
 }
-
 .map-link {
-  display: inline-block;
-  color: var(--yellow);
-  text-decoration: none;
-  font-size: 12px;
-  border-bottom: 1px solid var(--yellow);
-  padding-bottom: 2px;
+  display:inline-block;
+  color:var(--yellow);
+  font-size:12px;
+  text-decoration:none;
+  border-bottom:1px solid var(--yellow);
+  padding-bottom:2px;
 }
 
+/* 姓名 */
 .name-input {
-  width: 100%;
-  padding: 15px;
-  background: #292929;
-  border: 1px solid #555;
-  border-radius: 10px;
-  color: white;
-  font-size: 16px;
-  outline: none;
+  width:100%;
+  padding:15px;
+  color:white;
+  background:var(--panel);
+  border:1px solid #555;
+  border-radius:10px;
+  font:inherit;
+  outline:none;
 }
+.name-input:focus { border-color:var(--yellow); }
 
-.name-input:focus {
-  border-color: var(--yellow);
-}
-
+/* 按鈕 */
 .submit {
-  width: 100%;
-  padding: 17px;
-  border: 0;
-  border-radius: 12px;
-  background: var(--red);
-  color: white;
-  font-size: 18px;
-  font-weight: 900;
-  cursor: pointer;
-  margin-top: 15px;
-  transition: .2s;
+  width:100%;
+  margin-top:12px;
+  padding:16px;
+  border:0;
+  border-radius:12px;
+  color:white;
+  background:var(--red);
+  font:inherit;
+  font-size:17px;
+  font-weight:900;
+  cursor:pointer;
 }
+.submit:hover { background:#ff5148; }
 
-.submit:hover {
-  background: #ff594f;
-  transform: translateY(-2px);
-}
-
+/* 投票結果 */
 .result {
-  display: none;
-  margin-top: 25px;
-  padding: 22px;
-  border: 2px solid var(--yellow);
-  border-radius: 15px;
-  background: #292929;
-  line-height: 1.9;
+  display:none;
+  margin-top:24px;
+  padding:20px;
+  border:2px solid var(--yellow);
+  border-radius:14px;
+  background:#292929;
+  line-height:1.9;
 }
-
-.result h2 {
-  color: var(--yellow);
-  margin-top: 0;
+.result h2 { color:var(--yellow); }
+.copy-btn,.line-btn {
+  display:block;
+  width:100%;
+  margin-top:11px;
+  padding:13px;
+  border:0;
+  border-radius:9px;
+  text-align:center;
+  text-decoration:none;
+  font:inherit;
+  font-weight:900;
+  cursor:pointer;
 }
-
 .copy-btn {
-  width: 100%;
-  background: var(--yellow);
-  color: #111;
-  border: 0;
-  border-radius: 9px;
-  padding: 13px;
-  font-weight: 900;
-  cursor: pointer;
-  margin-top: 12px;
+  color:#111;
+  background:var(--yellow);
 }
-
 .line-btn {
-  display: block;
-  text-align: center;
-  background: #06c755;
-  color: white;
-  text-decoration: none;
-  padding: 13px;
-  border-radius: 9px;
-  margin-top: 10px;
-  font-weight: 800;
+  color:white;
+  background:#06c755;
 }
-
 .footer {
-  text-align: center;
-  color: #777;
-  font-size: 12px;
-  padding: 30px 10px;
+  padding:25px 12px 35px;
+  color:#777;
+  text-align:center;
+  font-size:11px;
+  line-height:1.8;
 }
 
-@media(max-width:400px) {
-  .date-grid { grid-template-columns: repeat(4,1fr); }
-  .time-grid { grid-template-columns: repeat(2,1fr); }
+@media(max-width:430px) {
+  .date-grid {
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:7px;
+  }
+  .date-grid .choice span {
+    font-size:13px;
+    padding:12px 2px;
+  }
+  .time-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
 }
 </style>
 </head>
 
 <body>
 
+<!-- 首頁生日邀請圖片 -->
+<div class="ticket-cover">
+  <img src="birthday-ticket.png"
+       alt="老外生日搖滾派對邀請票">
+</div>
+
 <header class="hero">
   <div class="tag">FEAR OF FAT BAND · SPECIAL EVENT</div>
   <h1>老外<span>生日</span>快樂！</h1>
   <p>THE DRUMMER DESERVES A BIG PARTY.</p>
-  <div class="sub">🥁 11.23 — 11.29 BIRTHDAY DINNER 🥁</div>
+  <p class="date-line">
+    🥁 2026.11.27 · BIRTHDAY DINNER 🥁
+  </p>
 </header>
 
 <main class="container">
 
   <div class="intro">
-    這不是普通的聚餐。<br>
-    這是專屬於 <strong>怕胖團鼓手・老外</strong> 的生日任務！<br>
-    請選出你可以參加的日期、時間與餐廳，<br>
-    一起讓這個生日變成年度名場面！🔥
+    這不是普通的聚餐，這是專屬於<br>
+    <strong>怕胖團鼓手・老外</strong> 的生日任務！<br>
+    選出你可以參加的日期、時間與餐廳，<br>
+    一起讓這個生日成為年度名場面！🔥
   </div>
 
   <form id="birthdayForm">
 
-    <div class="section">
+    <!-- 01 日期 -->
+    <section class="section">
       <div class="section-title">
         <span class="number">01</span> 選擇日期
       </div>
       <p class="hint">活動期間：2026 年 11 月 23 日至 29 日</p>
-
       <div class="date-grid" id="dateGrid"></div>
-    </div>
+    </section>
 
-    <div class="section">
+    <!-- 02 時間 -->
+    <section class="section">
       <div class="section-title">
         <span class="number">02</span> 選擇時間
       </div>
       <p class="hint" id="timeHint">請先選擇日期</p>
       <div class="time-grid" id="timeGrid"></div>
-    </div>
+    </section>
 
-    <div class="section">
+    <!-- 03 餐廳 -->
+    <section class="section">
       <div class="section-title">
         <span class="number">03</span> 選擇餐廳
       </div>
+      <p class="hint">共 8 間候選餐廳，選出最想去的一間</p>
 
-      
-<div class="section">
-  <div class="section-title">
-    <span class="number">03</span> 選擇餐廳
-  </div>
-  <p class="hint">8 間嚴選餐廳，選出老外的生日主場！</p>
+      <label class="restaurant">
+        <input type="radio" name="restaurant"
+          value="老井極上燒肉－台北信義店"
+          data-url="https://maps.app.goo.gl/k5ySujj73vyuce2o8"
+          required>
+        <div class="restaurant-card">
+          <h3>🥩 老井極上燒肉</h3>
+          <p>台北信義店｜燒肉派對</p>
+          <a class="map-link"
+            href="https://maps.app.goo.gl/k5ySujj73vyuce2o8"
+            target="_blank" rel="noopener">📍 查看 Google Maps ↗</a>
+        </div>
+      </label>
 
-  <label class="restaurant">
-    <input type="radio" name="restaurant" value="老井極上燒肉－台北信義店"
-      data-url="https://maps.app.goo.gl/k5ySujj73vyuce2o8" required>
-    <div class="restaurant-card">
-      <h3>🥩 老井極上燒肉</h3>
-      <p>台北信義店｜燒肉派對</p>
-      <a class="map-link" href="https://maps.app.goo.gl/k5ySujj73vyuce2o8" target="_blank">📍 查看 Google Maps ↗</a>
-    </div>
-  </label>
+      <label class="restaurant">
+        <input type="radio" name="restaurant"
+          value="貓下去敦北俱樂部"
+          data-url="https://maps.app.goo.gl/H811SrycTk2GFwyU7">
+        <div class="restaurant-card">
+          <h3>🍸 貓下去敦北俱樂部</h3>
+          <p>美食與微醺｜生日聚會</p>
+          <a class="map-link"
+            href="https://maps.app.goo.gl/H811SrycTk2GFwyU7"
+            target="_blank" rel="noopener">📍 查看 Google Maps ↗</a>
+        </div>
+      </label>
 
-  <label class="restaurant">
-    <input type="radio" name="restaurant" value="貓下去敦北俱樂部"
-      data-url="https://maps.app.goo.gl/H811SrycTk2GFwyU7">
-    <div class="restaurant-card">
-      <h3>🍸 貓下去敦北俱樂部</h3>
-      <p>美食與微醺｜生日聚會</p>
-      <a class="map-link" href="https://maps.app.goo.gl/H811SrycTk2GFwyU7" target="_blank">📍 查看 Google Maps ↗</a>
-    </div>
-  </label>
+      <label class="restaurant">
+        <input type="radio" name="restaurant"
+          value="年三十鐵板串燒居酒屋－光復店"
+          data-url="https://maps.app.goo.gl/pEiRkkaUPGQYqyuh9">
+        <div class="restaurant-card">
+          <h3>🍢 年三十鐵板串燒居酒屋</h3>
+          <p>光復店｜串燒與生日乾杯</p>
+          <a class="map-link"
+            href="https://maps.app.goo.gl/pEiRkkaUPGQYqyuh9"
+            target="_blank" rel="noopener">📍 查看 Google Maps ↗</a>
+        </div>
+      </label>
 
-  <label class="restaurant">
-    <input type="radio" name="restaurant" value="年三十鐵板串燒居酒屋－光復店"
-      data-url="https://maps.app.goo.gl/pEiRkkaUPGQYqyuh9">
-    <div class="restaurant-card">
-      <h3>🍢 年三十鐵板串燒居酒屋</h3>
-      <p>光復店｜串燒與生日乾杯</p>
-      <a class="map-link" href="https://maps.app.goo.gl/pEiRkkaUPGQYqyuh9" target="_blank">📍 查看 Google Maps ↗</a>
-    </div>
-  </label>
+      <label class="restaurant">
+        <input type="radio" name="restaurant"
+          value="石原商店"
+          data-url="https://maps.app.goo.gl/4AVHpXvHaaQ4Qtae9">
+        <div class="restaurant-card">
+          <h3>🍶 石原商店</h3>
+          <p>生日聚餐候選店</p>
+          <a class="map-link"
+            href="https://maps.app.goo.gl/4AVHpXvHaaQ4Qtae9"
+            target="_blank" rel="noopener">📍 查看 Google Maps ↗</a>
+        </div>
+      </label>
 
-  <label class="restaurant">
-    <input type="radio" name="restaurant" value="石原商店"
-      data-url="https://maps.app.goo.gl/4AVHpXvHaaQ4Qtae9">
-    <div class="restaurant-card">
-      <h3>🍶 石原商店</h3>
-      <p>生日聚餐候選店</p>
-      <a class="map-link" href="https://maps.app.goo.gl/4AVHpXvHaaQ4Qtae9" target="_blank">📍 查看 Google Maps ↗</a>
-    </div>
-  </label>
+      <label class="restaurant">
+        <input type="radio" name="restaurant"
+          value="子曰深夜食堂"
+          data-url="https://maps.app.goo.gl/pF2os4BvaoxDMaJv6">
+        <div class="restaurant-card">
+          <h3>🍜 子曰深夜食堂</h3>
+          <p>深夜食堂｜聚餐候選店</p>
+          <a class="map-link"
+            href="https://maps.app.goo.gl/pF2os4BvaoxDMaJv6"
+            target="_blank" rel="noopener">📍 查看 Google Maps ↗</a>
+        </div>
+      </label>
 
-  <label class="restaurant">
-    <input type="radio" name="restaurant" value="子曰深夜食堂"
-      data-url="https://maps.app.goo.gl/pF2os4BvaoxDMaJv6">
-    <div class="restaurant-card">
-      <h3>🍜 子曰深夜食堂</h3>
-      <p>深夜食堂｜聚餐候選店</p>
-      <a class="map-link" href="https://maps.app.goo.gl/pF2os4BvaoxDMaJv6" target="_blank">📍 查看 Google Maps ↗</a>
-    </div>
-  </label>
+      <label class="restaurant">
+        <input type="radio" name="restaurant"
+          value="京丘 Very Chill Yakitori（遼寧店）"
+          data-url="https://maps.app.goo.gl/unmJwkNq8nxh73DX7">
+        <div class="restaurant-card">
+          <h3>🔥 京丘 Very Chill Yakitori</h3>
+          <p>遼寧店｜炭火燒鳥</p>
+          <a class="map-link"
+            href="https://maps.app.goo.gl/unmJwkNq8nxh73DX7"
+            target="_blank" rel="noopener">📍 查看 Google Maps ↗</a>
+        </div>
+      </label>
 
-  <label class="restaurant">
-    <input type="radio" name="restaurant" value="京丘 Very Chill Yakitori（遼寧店）"
-      data-url="https://maps.app.goo.gl/unmJwkNq8nxh73DX7">
-    <div class="restaurant-card">
-      <h3>🔥 京丘 Very Chill Yakitori</h3>
-      <p>遼寧店｜炭火燒鳥</p>
-      <a class="map-link" href="https://maps.app.goo.gl/unmJwkNq8nxh73DX7" target="_blank">📍 查看 Google Maps ↗</a>
-    </div>
-  </label>
+      <label class="restaurant">
+        <input type="radio" name="restaurant"
+          value="洋介小料理"
+          data-url="https://maps.app.goo.gl/vgEBz37ACyve1zru9">
+        <div class="restaurant-card">
+          <h3>🍣 洋介小料理</h3>
+          <p>日式小料理｜聚餐候選店</p>
+          <a class="map-link"
+            href="https://maps.app.goo.gl/vgEBz37ACyve1zru9"
+            target="_blank" rel="noopener">📍 查看 Google Maps ↗</a>
+        </div>
+      </label>
 
-  <label class="restaurant">
-    <input type="radio" name="restaurant" value="洋介小料理"
-      data-url="https://maps.app.goo.gl/vgEBz37ACyve1zru9">
-    <div class="restaurant-card">
-      <h3>🍣 洋介小料理</h3>
-      <p>日式小料理｜聚餐候選店</p>
-      <a class="map-link" href="https://maps.app.goo.gl/vgEBz37ACyve1zru9" target="_blank">📍 查看 Google Maps ↗</a>
-    </div>
-  </label>
+      <label class="restaurant">
+        <input type="radio" name="restaurant"
+          value="激安の食事酒場（市府二號店）"
+          data-url="https://maps.app.goo.gl/ZMRsE6J1BZpoYYNE8">
+        <div class="restaurant-card">
+          <h3>🍺 激安の食事酒場</h3>
+          <p>市府二號店｜居酒屋聚會</p>
+          <a class="map-link"
+            href="https://maps.app.goo.gl/ZMRsE6J1BZpoYYNE8"
+            target="_blank" rel="noopener">📍 查看 Google Maps ↗</a>
+        </div>
+      </label>
+    </section>
 
-  <label class="restaurant">
-    <input type="radio" name="restaurant" value="激安の食事酒場（市府二號店）"
-      data-url="https://maps.app.goo.gl/ZMRsE6J1BZpoYYNE8">
-    <div class="restaurant-card">
-      <h3>🍺 激安の食事酒場</h3>
-      <p>市府二號店｜居酒屋聚會</p>
-      <a class="map-link" href="https://maps.app.goo.gl/ZMRsE6J1BZpoYYNE8" target="_blank">📍 查看 Google Maps ↗</a>
-    </div>
-  </label>
-</div>
-
-
-    <div class="section">
+    <!-- 04 姓名 -->
+    <section class="section">
       <div class="section-title">
         <span class="number">04</span> 你的大名
       </div>
-      <input class="name-input" id="name"
-        type="text" placeholder="請輸入你的名字" required>
-    </div>
+      <input class="name-input"
+        id="name"
+        type="text"
+        maxlength="40"
+        placeholder="請輸入你的名字"
+        autocomplete="name"
+        required>
+    </section>
 
     <button class="submit" type="submit">
       🥁 完成生日投票！
@@ -452,16 +460,18 @@ body {
 
   </form>
 
-  <div class="result" id="result">
-    <h2>🎉 投票完成！</h2>
+  <!-- 投票結果 -->
+  <section class="result" id="result" aria-live="polite">
+    <h2>🎉 投票內容已整理！</h2>
     <div id="resultText"></div>
     <button class="copy-btn" id="copyBtn" type="button">
       📋 複製投票內容
     </button>
-    <a class="line-btn" id="lineBtn" target="_blank">
+    <a class="line-btn" id="lineBtn"
+       href="#" target="_blank" rel="noopener">
       LINE 分享投票結果
     </a>
-  </div>
+  </section>
 
 </main>
 
@@ -472,27 +482,38 @@ body {
 
 <script>
 const dates = [
-  {date:"2026-11-23", day:"週一"},
-  {date:"2026-11-24", day:"週二"},
-  {date:"2026-11-25", day:"週三"},
-  {date:"2026-11-26", day:"週四"},
-  {date:"2026-11-28", day:"週六"},
-  {date:"2026-11-29", day:"週日"}
+  {date:'2026-11-23',day:'週一'},
+  {date:'2026-11-24',day:'週二'},
+  {date:'2026-11-25',day:'週三'},
+  {date:'2026-11-26',day:'週四'},
+  {date:'2026-11-27',day:'週五'},
+  {date:'2026-11-28',day:'週六'},
+  {date:'2026-11-29',day:'週日'}
 ];
 
-const dateGrid = document.getElementById("dateGrid");
-const timeGrid = document.getElementById("timeGrid");
-const timeHint = document.getElementById("timeHint");
+const weekdayTimes = [
+  '19:30','20:00','20:30','21:00'
+];
 
+const weekendTimes = [
+  '17:00','17:30','18:00','18:30',
+  '19:00','19:30','20:00'
+];
+
+const dateGrid = document.getElementById('dateGrid');
+const timeGrid = document.getElementById('timeGrid');
+const timeHint = document.getElementById('timeHint');
+
+// 建立日期選項
 dates.forEach(item => {
-  const label = document.createElement("label");
-  label.className = "choice";
+  const label = document.createElement('label');
+  label.className = 'choice';
 
   label.innerHTML = `
     <input type="radio" name="date"
       value="${item.date}" required>
     <span>
-      ${item.date.slice(5).replace("-","/")}
+      ${item.date.slice(5).replace('-','/')}
       <small>${item.day}</small>
     </span>
   `;
@@ -500,38 +521,30 @@ dates.forEach(item => {
   dateGrid.appendChild(label);
 });
 
-const weekdayTimes = [
-  "19:30","20:00","20:30","21:00"
-];
+// 根據日期切換時間
+dateGrid.addEventListener('change', event => {
+  if(event.target.name !== 'date') return;
 
-const weekendTimes = [
-  "17:00","17:30","18:00","18:30",
-  "19:00","19:30","20:00"
-];
-
-dateGrid.addEventListener("change", e => {
-  if(e.target.name !== "date") return;
-
-  const selectedDate = dates.find(
-    d => d.date === e.target.value
+  const selected = dates.find(
+    item => item.date === event.target.value
   );
 
   const day = new Date(
-    selectedDate.date + "T12:00:00"
+    `${selected.date}T12:00:00`
   ).getDay();
 
   const isWeekend = day === 0 || day === 6;
   const times = isWeekend ? weekendTimes : weekdayTimes;
 
   timeHint.textContent = isWeekend
-    ? "假日限定｜晚餐時段 17:00 後"
-    : "平日限定｜晚上 19:30 後";
+    ? '假日限定｜晚餐時段 17:00 後'
+    : '平日限定｜晚上 19:30 後';
 
-  timeGrid.innerHTML = "";
+  timeGrid.innerHTML = '';
 
   times.forEach(time => {
-    const label = document.createElement("label");
-    label.className = "choice";
+    const label = document.createElement('label');
+    label.className = 'choice';
 
     label.innerHTML = `
       <input type="radio" name="time"
@@ -543,82 +556,98 @@ dateGrid.addEventListener("change", e => {
   });
 });
 
-let finalMessage = "";
+// 送出投票
+let finalMessage = '';
 
-document.getElementById("birthdayForm")
-.addEventListener("submit", e => {
-  e.preventDefault();
+document.getElementById('birthdayForm')
+.addEventListener('submit', event => {
+  event.preventDefault();
 
   const date = document.querySelector(
     'input[name="date"]:checked'
-  ).value;
+  );
 
   const time = document.querySelector(
     'input[name="time"]:checked'
-  )?.value;
+  );
 
   const restaurant = document.querySelector(
     'input[name="restaurant"]:checked'
   );
 
-  const name = document.getElementById("name").value.trim();
+  const name = document.getElementById('name')
+    .value.trim();
 
-  if(!time || !restaurant || !name) {
-    alert("請完整填寫日期、時間、餐廳及姓名！");
+  if(!date || !time || !restaurant || !name) {
+    alert('請完整填寫日期、時間、餐廳及姓名！');
     return;
   }
 
-  const dateObj = dates.find(d => d.date === date);
+  const dateInfo = dates.find(
+    item => item.date === date.value
+  );
 
   finalMessage =
 `🥁 老外生日派對投票 🥁
 
 投票者：${name}
-日期：${date}（${dateObj.day}）
-時間：${time}
+日期：${date.value}（${dateInfo.day}）
+時間：${time.value}
 餐廳：${restaurant.value}
 餐廳地圖：${restaurant.dataset.url}
 
 老外生日快樂！一起來吃飯慶生吧！🎂`;
 
-  document.getElementById("resultText").innerHTML = `
-    <p>👤 投票者：${escapeHTML(name)}</p>
-    <p>📅 日期：${date}（${dateObj.day}）</p>
-    <p>⏰ 時間：${time}</p>
-    <p>🍽️ 餐廳：${escapeHTML(restaurant.value)}</p>
-    <p><a href="${restaurant.dataset.url}"
-      target="_blank" style="color:#ffd447">
-      查看餐廳位置 ↗
-    </a></p>
-  `;
+  const resultText =
+    document.getElementById('resultText');
 
-  document.getElementById("result").style.display = "block";
+  resultText.replaceChildren();
 
-  document.getElementById("lineBtn").href =
-    "https://line.me/R/msg/text/?" +
+  [
+    `👤 投票者：${name}`,
+    `📅 日期：${date.value}（${dateInfo.day}）`,
+    `⏰ 時間：${time.value}`,
+    `🍽️ 餐廳：${restaurant.value}`
+  ].forEach(text => {
+    const p = document.createElement('p');
+    p.textContent = text;
+    resultText.appendChild(p);
+  });
+
+  const map = document.createElement('a');
+  map.href = restaurant.dataset.url;
+  map.target = '_blank';
+  map.rel = 'noopener';
+  map.textContent = '📍 查看餐廳地圖 ↗';
+  resultText.appendChild(map);
+
+  document.getElementById('lineBtn').href =
+    'https://line.me/R/msg/text/?' +
     encodeURIComponent(finalMessage);
 
-  document.getElementById("result")
-    .scrollIntoView({behavior:"smooth"});
+  const result = document.getElementById('result');
+  result.style.display = 'block';
+
+  result.scrollIntoView({
+    behavior:'smooth',
+    block:'start'
+  });
 });
 
-function escapeHTML(str) {
-  return str.replace(/[&<>"']/g, c => ({
-    "&":"&amp;",
-    "<":"&lt;",
-    ">":"&gt;",
-    '"':"&quot;",
-    "'":"&#39;"
-  })[c]);
-}
-
-document.getElementById("copyBtn")
-.addEventListener("click", async () => {
+// 複製投票內容
+document.getElementById('copyBtn')
+.addEventListener('click', async () => {
   try {
     await navigator.clipboard.writeText(finalMessage);
-    alert("投票內容已複製！");
-  } catch(e) {
-    alert("複製失敗，請改用 LINE 分享。");
+    alert('投票內容已複製！');
+  } catch(error) {
+    const temp = document.createElement('textarea');
+    temp.value = finalMessage;
+    document.body.appendChild(temp);
+    temp.select();
+    document.execCommand('copy');
+    temp.remove();
+    alert('投票內容已複製！');
   }
 });
 </script>
